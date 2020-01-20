@@ -60,6 +60,18 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">roles</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                            <label for="roles">Seller</label>
+                                <input id="roles" type="checkbox"  name="roles" value="Seller"  >
+                                <label for="roles">Buyer</label>
+                                <input id="roles" type="checkbox"  name="roles" value="Buyer"  >
+                           </div>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
