@@ -8,14 +8,18 @@
                 <div class="card-header"> Modification utilisateur {{ $user->name }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('admin.users.update',$user)}}" method="POST">
-                      {{ method_fiels('PUT') }}
+                    <form action="{{ route('admin.users.update', $user) }}" method="POST">
+                    @csrf 
+                    @method('PUT')
                       @foreach($roles as $role)
                       <div class="form-check">
                         <input type="checkbox" name="roles[]" value="{{ $role->id }}" id="">
                         <label for="">{{ $role->name }}</label>
                       </div>
                       @endforeach
+                      <button type="submit" class="btn btn-primary">
+                          mettre à jour
+                      </button>
                     </form>
                 </div>
             </div>
