@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -73,10 +73,9 @@
                                     category
                                  </a>
                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="index.php?action=category&id=1">Alimentation</a>
-                                    <a class="dropdown-item" href="index.php?action=category&id=2">Batiment</a>
-                                    <a class="dropdown-item" href="index.php?action=category&id=3">Fabrication</a>
-                                    <a class="dropdown-item" href="index.php?action=category&id=4">Service</a>
+                                    @foreach( $obj['categories'] as $category)
+                                   <a href="{{ route('categories', ['url'=>$category->url])}}" class="dropdown-item">{{ $category->title }}</a>
+                                    @endforeach
                                  </div>
                               </li>
                             <li class="nav-item dropdown">
@@ -85,8 +84,8 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="index.php?action=profile">Votre Compte</a>
-                                    <a class="dropdown-item" href="index.php?action=panier">commande</a>
+                                <a class="dropdown-item" href="{{ route('home') }}">Votre Compte</a>
+                                    <a class="dropdown-item" href="{{ route('cart.checkout') }}">Panier <span class="badge badge-light">{{ Cart::getTotalQuantity()}}</span></a>
                                     <div class="dropdown-divider"></div>
                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -112,6 +111,7 @@
         <main class="py-4 mb-4">
          
             @include('partials.alert')
+          
             @yield('content')
           
         </main>

@@ -14,7 +14,7 @@ class ProductListController extends Controller
             'sub_title' => 'Tous nos produits',
             'products' => Product::all(),
         ];
-        return view('products')->with($params);
+        return view('listProduct')->with($params);
     }
 
     public function categories($url)
@@ -27,6 +27,6 @@ class ProductListController extends Controller
             'products' => $category->products,
         ];
 
-        return view('products')->with($params);
+        return view('listProduct')->with($params);
     }
 }

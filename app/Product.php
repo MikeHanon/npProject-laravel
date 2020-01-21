@@ -17,6 +17,6 @@ class Product extends Model
     ];
 
     public function getImage(){
-        return "images/$this->image";
+        return "$this->image";
     }
 }
