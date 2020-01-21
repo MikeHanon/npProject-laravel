@@ -16,8 +16,20 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
+      <!--bootstrap css-->
+      <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+      <!--animate css-->
+      <link rel="stylesheet" href="{{ asset('css/animate-wow.css') }}">
+      <!--main css-->
+      <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/bootstrap-select.min.css') }}">
+      <link rel="stylesheet" href="{{ asset('css/slick.min.css') }}">
+      <!--responsive css-->
+      <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 </head>
 <body>
     <div id="app">
@@ -76,7 +88,10 @@
         </nav>
 
         <main class="py-4">
+            <div class="container">
+            @include('partials.alert')
             @yield('content')
+            </div>
         </main>
     </div>
 </body>
