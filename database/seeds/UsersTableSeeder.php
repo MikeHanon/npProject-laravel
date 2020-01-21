@@ -22,17 +22,17 @@ class UsersTableSeeder extends Seeder
         $buyerRole = Role::where('name', 'buyer')->first();
 
         $admin = User::create([
-            'name'=> 'Admin User',
+            'name'=> 'Admin',
             'email' => 'admin@admin.com',
             'password' => Hash::make('password')
         ]);
         $seller = User::create([
-            'name'=> 'Seller User',
+            'name'=> 'Seller',
             'email' => 'seller@seller.com',
             'password' => Hash::make('password')
         ]);
         $buyer = User::create([
-            'name'=> 'Buyer User',
+            'name'=> 'Buyer',
             'email' => 'buyer@buyer.com',
             'password' => Hash::make('password')
         ]);

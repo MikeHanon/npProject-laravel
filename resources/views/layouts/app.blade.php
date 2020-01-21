@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://kit.fontawesome.com/09a3209f4f.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -45,7 +46,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    <form action ="index.php?action=search" method="GET" class="navbar-form navbar-left web-sh">
+                        <div class="form">
+                           <input type="hidden" name="action" value="search">
+                           <input name="search" type="text" class="form-control" placeholder="">
+                           <!-- <button name="btn-search" type="submit">chercher</button> -->
+                        </div>
+                     </form>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -102,7 +109,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 mb-4">
          
             @include('partials.alert')
             @yield('content')

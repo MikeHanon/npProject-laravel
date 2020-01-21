@@ -64,18 +64,18 @@
                             <label for="roles" class="col-md-4 col-form-label text-md-right">roles</label>
 
                             <div class="col-md-6">
-                                <div class="form-check">
-                            <label for="roles">Seller</label>
-                                <input id="roles" type="checkbox"  name="roles" value="Seller"  >
-                                <label for="roles">Buyer</label>
-                                <input id="roles" type="checkbox"  name="roles" value="Buyer"  >
+                                
+                            <select name="role" id="role" class="form-control">
+                        <option value="Seller">Vendeur</option>
+                        <option value="Buyer">Acheteur</option>
+                             </select>
                            </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary mb-3">
                                     {{ __('Register') }}
                                 </button>
                             </div>
@@ -86,4 +86,15 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+
+   <script src="./js/jquery-1.12.4.min.js"></script>
+
+   <script src="./js/bootstrap.min.js"></script>
+   <script src="./js/bootstrap-select.min.js"></script>
+   <script src="./js/slick.min.js"></script>
+   <script src="./js/wow.min.js"></script>
+
+<script src="./js/custom.js"></script>
 @endsection
