@@ -30,6 +30,8 @@ class ProductController extends Controller
      */
     public function create()
     {
+       
+
         return view('products.create');
     }
 
@@ -41,14 +43,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+     
         $request->validate([
             
             'category_id'=>'required',
+            'user_id'=>'required',
         'name'=>'required',
         'description'=>'required',
         'price' => 'required',
-        'image' => 'required',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
+  
+        $imageName = time().'.'.$request->image->extension();  
+   
+        $request->image->move(public_path('images/product'), $imageName);
 
         Product::create($request->all());
         
@@ -86,16 +94,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
+        
         $request->validate([
             
             'category_id'=>'required',
+            'user_id'=>'required',
         'name'=>'required',
         'description'=>'required',
         'price' => 'required',
-        'image' => 'required',
+        
         ]);
+  
+       
 
-        Product::create($request->all());
+        $product->update($request->all());
         
         return redirect()->route('home')->with('succes', 'Produit modifié avec succès');
     }

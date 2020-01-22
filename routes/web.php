@@ -28,7 +28,7 @@ Route::post('/cart-clear', 'CartController@clear')->name('cart.clear');
 Route::get('/categories/{url}', 'ProductController@categories')->name('categories');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
-    Route::resource('/users', 'UsersController', ['except' =>['show', 'create', 'store']]);
+    Route::resource('/users', 'UsersController', ['except' =>['create', 'store']]);
 });
 Route::resource('products', 'ProductController');
 Auth::routes(['verify'=> true]);

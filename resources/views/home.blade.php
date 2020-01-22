@@ -12,8 +12,8 @@
                         <div class="col-md-10">
                             <div class="profile-right-b">
                                
-                                    <a class="fo-btn" href="index.php?action=updateinfo&id=">Modifier</a>
-                              
+                                    <a class="fo-btn" href="{{ admin.users.edit, users->id }}" >Modifier</a>
+                             
                             </div>
                         </div>
                     </div>

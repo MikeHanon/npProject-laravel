@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -40,6 +41,10 @@ class AuthServiceProvider extends ServiceProvider
         });
         Gate::define('delete-product', function($user){
             return $user->hasRoles('admin');
+        });
+
+        Gate::define('isUser', function($user){
+            return $user->isUser(Auth::id());
         });
     }
 }

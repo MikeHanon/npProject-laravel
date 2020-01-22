@@ -1,14 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="" method="post" enctype="multipart/form-data" >
+
+<form action="{{ route('products.store') }}" method="post" enctype="multipart/form-data" >
+@csrf
+<input type="hidden" name="user_id" value="2">
+<input type="hidden" name="url" value="test">
+<input type="hidden" name="content" value="test">
 <div class="product-page-main">
     <div class="container">
     <div class="row">
             <div class="col-md-7 col-sm-8">
                 <div class="prod-page-title">
                     <label for="article_name">Nom de l'article</label>
-                    <input class="form-control" type="text" name="article_name" id="" required>
+                    <input class="form-control" type="text" name="name" id="" required>
 
                 </div>
             </div>
@@ -21,7 +26,7 @@
                     <div class="page-preview">
                         <div class="preview">
                             <label for="avatar"> ajouter une image :</label>
-                            <input type="file" name="avatar" id="avatar">
+                            <input type="file" name="image" id="avatar">
                         </div>
                     </div>
                 </div>
@@ -36,8 +41,8 @@
         <div class="col-md-3 col-sm-12">
             <div class="price-box-right">
                 <h4>Prix</h4>
-                <label for="prix">Prix</label>
-                <input class="form-control" type="text" name="prix" id="" required><span>par piece</span>
+                <label for="price">Prix</label>
+                <input class="form-control" type="text" name="price" id="" required><span>par piece</span>
                 <br>
                 <label for="quantité">stock = </label>
                 <input class="form-control" type="text" name="quantité" id="" required>

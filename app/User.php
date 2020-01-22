@@ -57,4 +57,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return false;
     }
+
+    public function isUser($id){
+        
+        if($this == $id){
+            return true;
+        }
+    }
 }

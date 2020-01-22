@@ -45,6 +45,13 @@ class UsersController extends Controller
             'roles'=>$roles
         ]);
     }
+    public function show(Request $request, $id)
+    {
+       
+        return view('admin.users.show');
+
+        
+    }
 
     /**
      * Update the specified resource in storage.
